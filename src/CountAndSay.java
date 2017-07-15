@@ -28,6 +28,7 @@ public class CountAndSay {
 		return s;
 	}
 	public static void main(String[] args) {
+    //ok
 		System.out.println(count(5));
 	}
 }
