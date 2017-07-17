@@ -29,7 +29,7 @@ public class CountAndSay {
 	}
 	public static void main(String[] args) {
     //ok
-		// 11
+		// 10
 		// 12,1
 
 		
