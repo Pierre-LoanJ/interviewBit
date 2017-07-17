@@ -30,6 +30,7 @@ public class CountAndSay {
 	public static void main(String[] args) {
     //ok
 		// sth else 7
+		// again more 8 
 		System.out.println(count(5));
 	}
 }
