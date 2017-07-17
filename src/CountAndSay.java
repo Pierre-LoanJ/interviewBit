@@ -32,6 +32,8 @@ public class CountAndSay {
 		// sth else 7
 		// again more 8 
 		// and 9,5
+		
+		// 11
 		System.out.println(count(5));
 	}
 }
