@@ -30,7 +30,7 @@ public class CountAndSay {
 	public static void main(String[] args) {
     //ok
 		// 10
-		// 11
+		// 12
 		System.out.println(count(5));
 	}
 }
