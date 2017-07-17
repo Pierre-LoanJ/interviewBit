@@ -31,8 +31,6 @@ public class CountAndSay {
     //ok
 		// 10
 		// 12,1
-
-		
 		System.out.println(count(5));
 	}
 }
