@@ -29,7 +29,7 @@ public class CountAndSay {
 	}
 	public static void main(String[] args) {
     //ok
-		// sth else 2
+		// sth else 3
 		System.out.println(count(5));
 	}
 }
