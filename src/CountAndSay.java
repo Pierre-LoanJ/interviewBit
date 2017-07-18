@@ -29,6 +29,8 @@ public class CountAndSay {
 	}
 	public static void main(String[] args) {
     //ok
+		// 9
+		// 12,3
 		System.out.println(count(5));
 	}
 }
