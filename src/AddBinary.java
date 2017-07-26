@@ -1,4 +1,12 @@
+/*
+ * leetcode
+Given two binary strings, return their sum (also a binary string).
 
+For example,
+a = "11"
+b = "1"
+Return "100".
+ */
 
 public class AddBinary {
 	    public static String addBinary(String a, String b) {
@@ -35,9 +43,7 @@ public class AddBinary {
 	            byte bbb = Byte.decode(b.charAt(i) + "");
 	            byte res = (byte) (aaa & bbb);
 	            */
-	        	
-	        	
-	        	
+	            
 	            sum = aa + bb + r;
 	            if (sum % 2 == 1) {
 	                // impair
@@ -59,7 +65,8 @@ public class AddBinary {
 	                
 	                s += 0 + "";
 	            }
-	            
+	             
+	            // ANOTHER SOLUTION WITH BYTES ??
 	            /*
 	            if ( (aa ^ bb ^ r) ) {                // 01 0 ou 00 1
 	                s += 1 + "";
@@ -80,7 +87,6 @@ public class AddBinary {
 	            i--;
 	        }
 	        if (r == 1) s += "1";
-	        //   String left = isALarger ? a.substring(0, a.length() - len - 1) : b.substring(0, b.length() - len - 1);  
 	        return reverse(s);
 	    }
 	    private static String reverse(String s) {
