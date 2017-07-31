@@ -1,6 +1,11 @@
 import utils.MyLinkedList;
 import utils.MyLinkedList.Node;
 
+/*
+ *  Given a sorted linked list, delete all duplicates such that each element appear only once. 
+ *  Given 1->1->2, return 1->2.
+ *  Given 1->1->2->3->3, return 1->2->3. 
+ */
 public class RemoveDuplicatesLinkedList {
 	public static Node deleteDuplicates(Node first) {
 		if (first == null) return null;
