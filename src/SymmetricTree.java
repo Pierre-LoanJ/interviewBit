@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class SymmetricTree {
 	public class TreeNode {
@@ -41,6 +43,38 @@ public class SymmetricTree {
             if (r == false) return false;
             return visit(p.right, q.right);
         }
+    }
+    
+    //corr
+    public static boolean isSymmetricCorr(TreeNode root) {
+        return isMirrorCorr(root, root);
+    }
+
+    public static boolean isMirrorCorr(TreeNode t1, TreeNode t2) {
+        if (t1 == null && t2 == null) return true;
+        if (t1 == null || t2 == null) return false;
+        return (t1.val == t2.val)
+            && isMirrorCorr(t1.right, t2.left)
+            && isMirrorCorr(t1.left, t2.right);
+    }
+    
+    // or with queue
+    public boolean isSymmetricCorrBis(TreeNode root) {
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        q.add(root);
+        q.add(root);
+        while (!q.isEmpty()) {
+            TreeNode t1 = q.poll();
+            TreeNode t2 = q.poll();
+            if (t1 == null && t2 == null) continue;
+            if (t1 == null || t2 == null) return false;
+            if (t1.val != t2.val) return false;
+            q.add(t1.left);
+            q.add(t2.right);
+            q.add(t1.right);
+            q.add(t2.left);
+        }
+        return true;
     }
     
     public static void main(String[] args) {
