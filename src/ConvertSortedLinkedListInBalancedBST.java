@@ -34,9 +34,10 @@ public class ConvertSortedLinkedListInBalancedBST {
     public static void main(String[] args) {
     	ConvertSortedLinkedListInBalancedBST ins = new ConvertSortedLinkedListInBalancedBST();
     	
-    	ListNode head = ins.new ListNode(3); 
-    	head.next = ins.new ListNode(5); 
-    	head.next.next = ins.new ListNode(8); 
+    	ListNode head = ins.new ListNode(-1); 
+    	head.next = ins.new ListNode(0); 
+    	head.next.next = ins.new ListNode(1);
+    	head.next.next.next = ins.new ListNode(2);
     	
     	TreeNode root = ins.sortedListToBST(head);
     	isBalancedBST isBal = new isBalancedBST();
