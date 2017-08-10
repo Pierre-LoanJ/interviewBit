@@ -1,7 +1,10 @@
+import utils.TreeNode;
+
 /*
  * Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
  */
 public class ConvertSortedArrayToBST {
+	/*
 	public class TreeNode {
 		private TreeNode left;
 		private TreeNode right;
@@ -13,6 +16,7 @@ public class ConvertSortedArrayToBST {
 			this.right = null;
 		}
 	}
+	*/
 	 public TreeNode sortedArrayToBST(int[] nums) {
 	        if (nums == null || nums.length == 0) return null; 
 	        int i = nums.length / 2;  
@@ -50,11 +54,14 @@ public class ConvertSortedArrayToBST {
 	        return node;
 	    }
 	    public static void main(String[] args) {
-	    	int[] a = { 1, 2, 3, 4, 5, 6, 7, }; //8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-	    	int[] b = {0};
+	    	int[] a = { -1, 0, 1, 2 }; //8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 	    	ConvertSortedArrayToBST inst = new ConvertSortedArrayToBST();
-	    	TreeNode res = inst.sortedArrayToBSTCorr(a);
-	    	int c = 3;
+	    	TreeNode root = inst.sortedArrayToBSTCorr(a);
 	    	
+	    	
+	    	
+	    	
+	    	isBalancedBST isB = new isBalancedBST();
+	    	System.out.println(isB.isBalanced(root));
 	    }
 }
