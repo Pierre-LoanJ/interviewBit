@@ -28,14 +28,33 @@ public class RemoveDuplicates {
 	         }
 	    }
 		return size;
-	    }
+    }
+	 
+	 
+	 /*
+	  * 
+	  * 
+	  * 
+	  * 
+	  */
+	 
+	 
+	 
 	 public static int removeDuplicatesCorr(int[] A) {
 		    if (A.length==0) return 0;
 		    int j=0;
-		    for (int i=0; i<A.length; i++)
-		        if (A[i]!=A[j]) A[++j]=A[i];
+		    for (int i=0; i<A.length; i++) {		    	
+		        if (A[i]!=A[j]) {
+		        	A[++j]=A[i];
+		        }
+		    }
 		    return ++j;
 		}
+	 
+	 //	Basically, instead of saying when I find sth wrong and I solve it, we say we do the normal process of keeping copying the elements
+	 // and I find find sth wrong I just do nothing and skip it.
+	 // The trick is to skip duplicates by keeping nextCopy Index j at the same place every time we find A[i] = A[j]
+	 
 	 public static void main(String[] args) {
 		 int[] a = {1, 2, 2, 3, 4};
 		 System.out.println(removeDuplicatesCorr(a));

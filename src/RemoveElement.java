@@ -10,15 +10,21 @@ public class RemoveElement {
 	public static int removeElementCorr(int[] A, int elem) {
 		   int j = 0;    
 		   for(int i = 0; i < A.length; i++){
-		       
 		       if(A[i] != elem){
-		           A[j] = A[i];
-		           j++;
+		           A[j++] = A[i];
 		       }
 		   }
 		   
 		   return j;
 		}
+	
+	// The trick is to overwrite values that == elem with others values by not incrementing j in case of A[i] = elem
+	
+	/*
+	 * 
+	 * 
+	 */
+	
 	public static int removeElement(int[] a, int v) {
 		if (a == null || a.length == 0) return 0;
 		int j = 0;

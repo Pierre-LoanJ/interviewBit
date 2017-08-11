@@ -37,11 +37,11 @@ public class RemoveDuplicatesLinkedList {
 	
 	public static Node deleteDuplicatesCorr(Node head) {
 		/* 
-		 only one pointer to go through the list and to skip duplicates
+		 only one pointer to go through the list and to short cut duplicates
 		 */
 	    Node current = head;
 	    while (current != null && current.next != null) {
-	        if (current.next.item == current.item) {
+	        if (current.item == current.next.item) {
 	            current.next = current.next.next;
 	        } else {
 	            current = current.next;
@@ -49,6 +49,10 @@ public class RemoveDuplicatesLinkedList {
 	    }
 	    return head;
 	}
+	
+	// Here it is the opposite way of thinking
+	// we short cut the duplicate when we find sth wrong
+	
 	public static void main(String[] args) {
 		MyLinkedList<Integer> ll = new MyLinkedList<Integer>();
 		ll.add(1);
