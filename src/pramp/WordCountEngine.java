@@ -73,7 +73,8 @@ public class WordCountEngine {
 		   out[j++] = cur;
 		   it.remove();
 	   }
-	   return out;
+	   return out; 
+	   //  but has to be sorted in descending order
 	  }
 	public static void main(String[] args) {
 		String d = "Practice makes perfect. you'll only get Perfect by practice. just practice!";
