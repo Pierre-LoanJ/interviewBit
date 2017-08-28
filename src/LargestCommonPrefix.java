@@ -1,41 +1,32 @@
 import java.util.HashMap;
 
 public class LargestCommonPrefix {
-	 public static String longestCommonPrefix(String[] strs) {
-	        if (strs.length == 0) return "";
-	        boolean bSame = true;
-	        boolean bNext = true;
-	        int j = 0;
-	        char current = '\0';
-	        String prefix = "";
-	        while(bSame && bNext) {
-	            if (strs[0] == null || j > strs[0].length() - 1) {
-	                bNext = false;
-	                break;
-	            }
-	            current = strs[0].charAt(j);
-	            for (int i = 1; i < strs.length; i++) {
-	                if (strs[i] == null || j > strs[i].length() - 1) {
-	                    bNext = false;
-	                    break;
-	                }
-	                if (current != strs[i].charAt(j)) {
-	                    bSame = false;
-	                    break;
-	                }
-	                else {
-	                   
-	                }
-	            }
-                if (bNext && bSame) prefix += current;
-                j++;
-	        }
-	       return prefix;
-	 }
+	 public static String longestCommonPrefix(String[] a) {
+		 if (a == null || a.length == 0) return "";
+		 String prefix = "";
+		 int i = 0, j = 0;
+		 
+		 while (i < a[j].length()) {
+			 char prev = a[0].charAt(i);
+			 char curChar = prev;
+			 
+			 while (j < a.length && i < a[j].length()) {
+				 if (j > 0) prev = a[j-1].charAt(i);
+				 			curChar = a[j].charAt(i);
+				 if (curChar != prev) break;
+				 j++;
+			 }
+			 if (j == a.length) prefix += curChar;
+			 else break;
+			 i++;
+			 j = 0;
+		 }
+		 return prefix;
+ 	 }
 	 public static void main(String[] args) {
 		 String[] b = {"a", "b"};
-		 String[] a = { "abc", "abcde", "abcefh", "ab" };
-		 String prefix  = longestCommonPrefix(b);
+		 String[] a = { "abc", "ab", "abcefh", "abc" };
+		 String prefix  = longestCommonPrefix(a);
 		 System.out.println(prefix);
 		 HashMap<Integer, String> m = new HashMap<Integer, String>();
 		 m.put(3, "value");
