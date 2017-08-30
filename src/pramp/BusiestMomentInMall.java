@@ -43,7 +43,7 @@ public class BusiestMomentInMall {
 			if (a[i][2] == 1) count += a[i][1];
 			else count -= a[i][1];
 		}
-		if (max < count) tMax = cur;
+		if (max < count) tMax = cur; // if max is the last time stamp then don't forget to update tMax
 		return tMax;
 	}
 	public static void main(String[] args) {
