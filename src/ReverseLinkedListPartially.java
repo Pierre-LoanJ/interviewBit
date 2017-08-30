@@ -1,53 +1,58 @@
 import utils.ListNode;
 import java.util.*;
+/*
+Reverse a linked list from position m to n. Do it in-place and in one-pass.
+
+For example:
+Given 1->2->3->4->5->NULL, m = 2 and n = 4,
+return 1->4->3->2->5->NULL.
+
+Note:
+Given m, n satisfy the following condition:
+1 ≤ m ≤ n ≤ length of list.
+*/
 
 public class ReverseLinkedListPartially {
 	public static ListNode reverseBetween(ListNode head, int m, int n) {
-        if (m < 1 || n < 1 || n < m || head == null) return head;
+        if (m < 1 || n < 1 || n < m || head == null) return null;
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode start = dummy;
-        Stack<ListNode> s = new Stack<ListNode>();
-        int mm = m;
-        int dif = n - m + 1;
-        ListNode lm = dummy, after = null, before = null, ret = dummy, cur = dummy;
-        if (mm == 1) lm = dummy.next;
-        while (mm > 1) {
-            //before = lm;
-        	if (lm == null) return head;
-            lm = lm.next;
-            mm--;
+        
+        int deb = m+1, dif = n+1 - m;
+        ListNode l = dummy, after = null, before = null;
+        while (deb > 1) {
+        	before = l;
+            l = l.next;
+            deb--;
         }
+        Stack<Integer> s = new Stack<Integer>();
         while (dif > 0) {
-        	if (lm == null) return head;
-            s.push(lm);
-            lm = lm.next;
+            s.push(l.val);
+            l = l.next;
             dif--;
         }
-        after = lm;
-        while (cur != null) {  
-            if (m - 1 <= 1) {
-                break;
-            }
-            cur = cur.next;
-        }
-        if (lm == null) return head;
+        after = l;
         while (!s.isEmpty()) {
-        	if (cur == null) return head;
-            cur.next = s.pop();
-            cur = cur.next;
+        	before.next = new ListNode(s.pop());
+            before = before.next;
         }
-        cur.next = after;
-        return start.next;
+        before.next = after;
+        return dummy.next;
     }
+	/* Be very careful with edge cases like following ones:
+		m = 1 
+		n = list.size()
+		m = n
+	*/
+		
 	public static void main(String[] args) {
 		ListNode l1 = new ListNode(1);
     	l1.next = new ListNode(2);
     	l1.next.next = new ListNode(3);
-    	//l1.next.next.next = new ListNode(4);
-    //	l1.next.next.next.next = new ListNode(5);
+    	l1.next.next.next = new ListNode(4);
+    	l1.next.next.next.next = new ListNode(5);
     	
-    	ListNode l = reverseBetween(l1, 1, 2);
+    	ListNode l = reverseBetween(l1, 5, 5);
     	while(l != null) {
     		System.out.print(l.val + "  -  ");
     		l = l.next;
