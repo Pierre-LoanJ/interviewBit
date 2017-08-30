@@ -27,10 +27,30 @@ public class BusiestMomentInMall {
 	  }
 	     return timestamp;
 	 }
+	// revision 
+	public static int find(int[][] a) {
+		int tMax = 0, max = 0, prev = a[0][0], cur = 0, count = 0;
+		for (int i = 0; i < a.length; i++) {
+			cur = a[i][0];
+			if (prev != cur) {
+				if (max < count) {
+					max = count;
+					tMax = prev;
+				}
+				count = 0;
+				prev = cur;
+			}
+			if (a[i][2] == 1) count += a[i][1];
+			else count -= a[i][1];
+		}
+		if (max < count) tMax = cur;
+		return tMax;
+	}
 	public static void main(String[] args) {
-		int[][] data = { { 90, 2, 1 }, { 90, 2, 0 }, { 90, 5, 1 }, { 91, 4, 1 }, 
-						 { 91, 2, 0 }, { 92, 8, 0 }, { 92, 4, 1 }, { 93, 1, 1 }, 
-						 { 93, 108, 1 }, { 93, 6, 1 }, { 94, 0 , 1 }, { 94, 3, 0 } };
-		System.out.println(findBusiestPeriod(data));
+		int[][] data = { { 90, 2, 1 }, { 90, 2, 0 }, { 90, 5, 1 }, 
+				{ 91, 4, 1 }, { 91, 2, 0 }, 
+				{ 92, 8, 0 }, { 92, 4, 1 }, 
+				{ 93, 1, 1 }, { 93, 108, 1 }, { 93, 6, 1 } };
+		System.out.println(find(data));
 	}
 }
