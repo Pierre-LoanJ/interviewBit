@@ -93,7 +93,7 @@ public class BinaryTreeTraversal {
         Stack<TreeNode> s = new Stack<TreeNode>();
         if (root == null) return out;
         TreeNode n = root;
-        while (!s.empty() || n != null) {
+        while (!s.isEmpty() || n != null) {
         	while (n != null) {
         		s.push(n);
         		n = n.left;
@@ -110,7 +110,7 @@ public class BinaryTreeTraversal {
 		if (root == null) return out;
  		s.push(root);
         TreeNode n = null;
-        while(!s.empty()) {
+        while(!s.isEmpty()) {
  			n = s.pop();
  			if (n != null) {
                 s.push(n.left);
