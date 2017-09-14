@@ -12,7 +12,7 @@ public class BinaryTreeTraversal {
 	
 	 // Recurvive Algorithms for Deep First Search
 	 
-	public List<Integer> preorderRecursiveTraversal(TreeNode root) {
+	public static List<Integer> preorderRecursiveTraversal(TreeNode root) {
         List<Integer> list = new LinkedList<Integer>();
         if (root == null) return list;
         list.add(root.val);
@@ -20,14 +20,14 @@ public class BinaryTreeTraversal {
         preOrder(root.right, list);
 	    return list;
 	}
-	private void preOrder(TreeNode n, List<Integer> list) {
+	private static void preOrder(TreeNode n, List<Integer> list) {
 		if (n == null) return;
 	    list.add(n.val);
 	    preOrder(n.left, list);
 	    preOrder(n.right, list);
     }
 	
-	public List<Integer> postOrderRecursiveTraversal(TreeNode root) {
+	public static List<Integer> postOrderRecursiveTraversal(TreeNode root) {
 		List<Integer> list = new LinkedList<Integer>();
         if (root == null) return list;
         postOrder(root.left, list);
@@ -35,14 +35,14 @@ public class BinaryTreeTraversal {
         list.add(root.val);
 	    return list;
 	}
-	private void postOrder(TreeNode n, List<Integer> list) {
+	private static void postOrder(TreeNode n, List<Integer> list) {
 		if (n == null) return;
 	    postOrder(n.left, list);
 	    postOrder(n.right, list);
 	    list.add(n.val);
 	}
 	
-	public List<Integer> InRecursiveTraversal(TreeNode root) {
+	public static List<Integer> InOrderRecursiveTraversal(TreeNode root) {
 		List<Integer> list = new LinkedList<Integer>();
         if (root == null) return list;
         inOrder(root.left, list);
@@ -50,7 +50,7 @@ public class BinaryTreeTraversal {
         inOrder(root.right, list);
 	    return list;
 	}
-	private void inOrder(TreeNode n, List<Integer> list) {
+	private static void inOrder(TreeNode n, List<Integer> list) {
 		if (n == null) return;
 	    inOrder(n.left, list);
 	    list.add(n.val);
@@ -88,19 +88,34 @@ public class BinaryTreeTraversal {
  		*/
  		return out;
 	}
-	
+	public static List<Integer> iterativeInOrderTraversal(TreeNode root) {
+		List<Integer> out = new LinkedList<Integer>();
+        Stack<TreeNode> s = new Stack<TreeNode>();
+        if (root == null) return out;
+        TreeNode n = root;
+        while (!s.isEmpty() || n != null) {
+        	while (n != null) {
+        		s.push(n);
+        		n = n.left;
+        	}
+        	n = s.pop();
+            out.add(n.val);
+            n = n.right;
+		}
+        return out;
+    }
 	public static List<Integer> iterativePostOrderTraversal(TreeNode root) {
 		Stack<TreeNode> s = new Stack<TreeNode>();
 		List<Integer> out = new LinkedList<Integer>();
 		if (root == null) return out;
  		s.push(root);
         TreeNode n = null;
-        while(!s.empty()) {
+        while(!s.isEmpty()) {
  			n = s.pop();
  			if (n != null) {
-                out.add(0, n.val);
-	 			s.push(n.left);
+                s.push(n.left);
                 s.push(n.right);
+                out.add(0, n.val);
  		    }
         }
  		return out;
@@ -113,6 +128,9 @@ public class BinaryTreeTraversal {
 		Queue<Integer> q = new LinkedList<Integer>();
 		List<Integer> out = new LinkedList<Integer>();
 		if (root == null) return out;
+		/*
+		 TO DO
+		 */
 		return out;
 	}
 	
@@ -122,9 +140,9 @@ public class BinaryTreeTraversal {
 		  root.right = new TreeNode(3);
 		  
 		  root.left.left = new TreeNode(4);
-		  root.right.right = new TreeNode(5);
+		  root.left.right = new TreeNode(5);
 		  
-		  List<Integer> res = iterativePostOrderTraversal(root);
+		  List<Integer> res = iterativeInOrderTraversal(root);
 		  for (Integer i : res) {
 			  System.out.print(i + "  -  ");
 		  }
