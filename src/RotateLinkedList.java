@@ -9,7 +9,10 @@ return 4->5->1->2->3->NULL.
  */
 
 public class RotateLinkedList {
-	public ListNode rotateRight(ListNode head, int k) {
+	
+	
+	// there are still some bugs
+	public static ListNode rotateRight(ListNode head, int k) {
         if (head == null) return null;
         if (k == 0) return head;
         ListNode oldEnd = null, newEnd = head;
@@ -49,4 +52,17 @@ public class RotateLinkedList {
         
         return newStart;
     }
+	public static void main(String[] args) {
+		ListNode l = new ListNode(1);
+    	l.next = new ListNode(2);
+    	l.next.next = new ListNode(3);
+    	l.next.next.next = new ListNode(4);
+    	l.next.next.next.next = new ListNode(5);
+    	
+    	ListNode r = rotateRight(l, 2);
+    	while(r != null) {
+    		System.out.print(r.val + "  -  ");
+    		r = r.next;
+    	}
+	}
 }
