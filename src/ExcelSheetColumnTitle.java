@@ -36,8 +36,14 @@ public class ExcelSheetColumnTitle {
         }
         return s;
     }
+	/*  Three things to remember here:
+		1- the pace n = n / 26 and not n = n - 26
+		2- the edge case (26 % 26) so we take n-1
+		3- how we build s either we add new char in front (iterative) or in tail (recurisve)
+	*/
+	
 	public static void main(String[] args) {
-		int n = 730;
+		int n = 228;
 		String s = convertToTitleRecursive(n);
 		System.out.println(s);
 	}
