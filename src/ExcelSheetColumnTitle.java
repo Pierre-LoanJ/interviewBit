@@ -20,7 +20,6 @@ public class ExcelSheetColumnTitle {
 		String s  = "";
         if (n > 26) {
             s += convertToTitleRecursive((n-1)/26);
-            n -= 26;
         }
         int r = (n-1) % 26;
         int d = r + 65;
@@ -39,7 +38,7 @@ public class ExcelSheetColumnTitle {
     }
 	public static void main(String[] args) {
 		int n = 730;
-		String s = convertToTitleIterative(n);
+		String s = convertToTitleRecursive(n);
 		System.out.println(s);
 	}
 }
