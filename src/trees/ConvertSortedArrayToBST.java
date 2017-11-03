@@ -62,7 +62,7 @@ public class ConvertSortedArrayToBST {
 	    	
 	    	
 	    	
-	    	isBalancedBST isB = new isBalancedBST();
+	    	isBalancedBinaryTree isB = new isBalancedBinaryTree();
 	    	System.out.println(isB.isBalanced(root));
 	    }
 }

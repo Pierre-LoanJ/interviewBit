@@ -68,7 +68,7 @@ public class ConvertSortedLinkedListInBalancedBST {
     	//head.next.next.next.next.next.next = ins.new ListNode(5);
     	
     	TreeNode root = ins.sortedListToBSTCorr(head);
-    	isBalancedBST isBal = new isBalancedBST();
+    	isBalancedBinaryTree isBal = new isBalancedBinaryTree();
     	
     	System.out.println(isBal.isBalanced(root));
     }

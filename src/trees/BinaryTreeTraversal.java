@@ -125,12 +125,18 @@ public class BinaryTreeTraversal {
 	// Algorithms for Bread First Search
 	
 	public static List<Integer> iterativeBreadFirstTraversal(TreeNode root) {
-		Queue<Integer> q = new LinkedList<Integer>();
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		List<Integer> out = new LinkedList<Integer>();
 		if (root == null) return out;
-		/*
-		 TO DO
-		 */
+		q.add(root);
+		while (!q.isEmpty()) {
+			TreeNode n = q.remove();
+			if (n != null) {
+				out.add(n.val);
+				q.add(n.left);
+				q.add(n.right);
+			}
+		}
 		return out;
 	}
 	
@@ -142,7 +148,7 @@ public class BinaryTreeTraversal {
 		  root.left.left = new TreeNode(4);
 		  root.left.right = new TreeNode(5);
 		  
-		  List<Integer> res = iterativeInOrderTraversal(root);
+		  List<Integer> res = iterativeBreadFirstTraversal(root);
 		  for (Integer i : res) {
 			  System.out.print(i + "  -  ");
 		  }
