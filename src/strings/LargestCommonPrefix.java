@@ -31,6 +31,5 @@ public class LargestCommonPrefix {
 		 System.out.println(prefix);
 		 HashMap<Integer, String> m = new HashMap<Integer, String>();
 		 m.put(3, "value");
-	 }
-	 
+	 }	 
 }

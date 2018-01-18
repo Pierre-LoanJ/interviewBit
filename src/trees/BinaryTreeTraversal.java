@@ -148,7 +148,7 @@ public class BinaryTreeTraversal {
 		  root.left.left = new TreeNode(4);
 		  root.left.right = new TreeNode(5);
 		  
-		  List<Integer> res = iterativeBreadFirstTraversal(root);
+		  List<Integer> res = iterativePostOrderTraversal(root);
 		  for (Integer i : res) {
 			  System.out.print(i + "  -  ");
 		  }
